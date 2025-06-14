@@ -1,0 +1,91 @@
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar ul li:hover {
+  background: #1e90ff;
+}
+
+.sidebar ul li i {
+  margin-right: 10px;
+}
+
+.main-content {
+  flex: 1;
+  background: url('bg.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-card {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+.intro-text h1 {
+  margin: 0 0 10px 0;
+}
+
+.intro-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #1e90ff;
+  border-color: #1e90ff;
+}
+
+.btn-light {
+  background: #fff;
+  color: #000;
+}
