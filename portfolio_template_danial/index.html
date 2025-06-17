@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,30 +10,157 @@
 <body>
   <div class="sidebar">
     <ul>
-      <li><i class="fas fa-home"></i> Home</li>
-      <li><i class="fas fa-user"></i> About</li>
-      <li><i class="fas fa-pen"></i> Experience</li>
-      <li><i class="fas fa-image"></i> Work</li>
-      <li><i class="fas fa-envelope"></i> Contact</li>
+      <li onclick="showSection('home')"><i class="fas fa-home"></i> Home</li>
+      <li onclick="showSection('about')"><i class="fas fa-user"></i> About</li>
+      <li onclick="showSection('experience')"><i class="fas fa-pen"></i> Experience</li>
+      <li onclick="showSection('work')"><i class="fas fa-image"></i> Work</li>
+      <li onclick="showSection('contact')"><i class="fas fa-envelope"></i> Contact</li>
     </ul>
   </div>
 
   <div class="main-content">
-    <div class="intro-card">
-      <img src="pic01.jpg" alt="Profile Picture" class="profile-img" />
-      <div class="intro-text">
-        <h1>DANIAL AIMAN</h1>
-        <p>
-          Hi, I'm <strong>Danial</strong>, a passionate web and embedded system developer
-          with interest in smart technologies and real-time systems. I enjoy
-          building creative and useful solutions using modern tools.
-        </p>
-        <div class="buttons">
-          <a href="#" class="btn">Read More</a>
-          <a href="www.linkedin.com/in/danialaimanazman" class="btn btn-light">My LinkedIn Page</a>
+    <!-- Home Section -->
+    <div id="home" class="content-section active">
+      <div class="intro-card">
+        <img src="pic01.jpg" alt="Profile Picture" class="profile-img" />
+        <div class="intro-text">
+          <h1>DANIAL AIMAN</h1>
+          <p>
+            Hi, I'm <strong>Danial</strong>, a passionate web and embedded system developer
+            with interest in smart technologies and real-time systems. I enjoy
+            building creative and useful solutions using modern tools.
+          </p>
+          <div class="buttons">
+            <a href="#" class="btn" onclick="showSection('about')">Read More</a>
+            <a href="https://www.linkedin.com/in/danialaimanazman" class="btn btn-light" target="_blank">My LinkedIn Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="content-section">
+      <div class="section-card">
+        <h1>ABOUT ME</h1>
+        <div class="about-content">
+          <div class="about-text">
+            <p>I'm a dedicated developer with expertise in both web technologies and embedded systems.</p>
+            <h3>Skills:</h3>
+            <ul class="skills-list">
+              <li>HTML, CSS, JavaScript</li>
+              <li>React, Node.js</li>
+              <li>Python, C/C++</li>
+              <li>Embedded Systems Programming</li>
+              <li>IoT Development</li>
+            </ul>
+            <h3>Education:</h3>
+            <p>Bachelor's Degree in Computer Engineering</p>
+          </div>
+          <img src="about-image.jpg" alt="About Image" class="about-image">
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div id="experience" class="content-section">
+      <div class="section-card">
+        <h1>EXPERIENCE</h1>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Web Developer</h3>
+            <p class="company">Tech Solutions Inc. (2021-Present)</p>
+            <p>Developed responsive web applications using modern frameworks.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Embedded Systems Engineer</h3>
+            <p class="company">IoT Innovations (2019-2021)</p>
+            <p>Designed and implemented firmware for IoT devices.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Junior Developer</h3>
+            <p class="company">Digital Creations (2017-2019)</p>
+            <p>Assisted in full-stack development projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Section -->
+    <div id="work" class="content-section">
+      <div class="section-card">
+        <h1>MY WORK</h1>
+        <div class="work-gallery">
+          <div class="work-item">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Smart Home System</h3>
+            <p>IoT-based home automation solution</p>
+          </div>
+          <div class="work-item">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>E-commerce Platform</h3>
+            <p>Full-stack web application</p>
+          </div>
+          <div class="work-item">
+            <img src="project3.jpg" alt="Project 3">
+            <h3>Industrial Monitoring</h3>
+            <p>Real-time equipment monitoring system</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="content-section">
+      <div class="section-card">
+        <h1>CONTACT ME</h1>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> danial@example.com</p>
+            <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the selected section
+      document.getElementById(sectionId).classList.add('active');
+      
+      // Update active menu item
+      document.querySelectorAll('.sidebar li').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Find the corresponding menu item and make it active
+      const menuItems = document.querySelectorAll('.sidebar li');
+      const menuTexts = ['Home', 'About', 'Experience', 'Work', 'Contact'];
+      const index = menuTexts.findIndex(text => 
+        sectionId.toLowerCase() === text.toLowerCase()
+      );
+      
+      if (index !== -1) {
+        menuItems[index].classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
